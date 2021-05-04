@@ -1,0 +1,1 @@
+dotnet run --project ./src/CommandAPI/CommandAPI.csproj
