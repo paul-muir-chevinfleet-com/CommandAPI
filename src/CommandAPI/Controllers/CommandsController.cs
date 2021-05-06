@@ -5,6 +5,7 @@ using CommandAPI.Data;
 using CommandAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CommandAPI.Controllers
 {
@@ -24,7 +25,6 @@ namespace CommandAPI.Controllers
 
         
         //GET api/commands
-
         [HttpGet]
         public ActionResult<IEnumerable<CommandReadDto>> GetAllCommands()
         {
@@ -34,6 +34,7 @@ namespace CommandAPI.Controllers
         }
 
         //GET api/commands/{id}
+        [Authorize]
         [HttpGet("{id}", Name = "GetCommandById")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
